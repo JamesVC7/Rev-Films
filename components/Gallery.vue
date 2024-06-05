@@ -36,9 +36,9 @@ onMounted(async () => {
 
 <template>
     <div class="flex justify-center p-4">
-        <Galleria v-if="movie" :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px; backdrop-filter: blur(10px);">
+        <Galleria v-if="movie" :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="width: 25%;">
             <template #item="slotProps">
-                <img :src="'https://image.tmdb.org/t/p/w500' + slotProps.item.file_path" :alt="slotProps.item.file_path" style="width: 70%" />
+                <img :src="'https://image.tmdb.org/t/p/w500' + slotProps.item.file_path" :alt="slotProps.item.file_path"/>
             </template>
             <template #thumbnail="slotProps" class="h-52">
                 <img :src="'https://image.tmdb.org/t/p/w200' + slotProps.item.file_path" :alt="slotProps.item.file_path" />
