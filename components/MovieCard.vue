@@ -22,7 +22,7 @@ defineProps<MovieCardProps>();
 </template>
 
 <style>
-.p-card-body{
+#cont-card .p-card-body{
   padding: 0;
 }
 #cont-card:hover{

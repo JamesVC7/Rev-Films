@@ -57,6 +57,12 @@ function truncateContent(content: string, wordLimit: number): string {
   return content;
 }
 
+function getAvatarUrl(avatarPath: string | null): string {
+  return avatarPath
+    ? `https://image.tmdb.org/t/p/w500${avatarPath}`
+    : '/avatar.png';
+}
+
 onMounted(async () => {
   const movieTitle = route.params.title;
   movie.value = await getMovieByTitle(movieTitle);
@@ -81,12 +87,11 @@ onMounted(async () => {
     </div>
     <h2 class="text-xl font-bold px-4">Reseñas</h2>
     <div class="card">
-      <Carousel :value="reviews" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions">
+      <Carousel :value="reviews" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions" circular :autoplayInterval="5000">
         <template #item="slotProps">
           <div class="border border-surface-200 dark:border-surface-700 rounded m-2 p-4 shadow-md">
             <div class="flex items-center gap-4 mb-4">
-              <Image :src="'https://image.tmdb.org/t/p/w500' + slotProps.data.avatar_path" id="avatar"
-                class="w-12 h-12 rounded-full" />
+              <Avatar :image="getAvatarUrl(slotProps.data.avatar_path)" class="mr-2" size="large" shape="circle" />
               <p class="font-bold">{{ slotProps.data.author }}</p>
             </div>
             <p class="text-xs mb-4">{{ truncateContent(slotProps.data.content, 100) }}</p>
@@ -101,8 +106,10 @@ onMounted(async () => {
   </div>
   <div class="flex flex-col p-4 text-white" id="cont_gal">
     <p class="text-center">Galeria de Imagenes</p>
-    <Gallery/>
+    <Gallery />
   </div>
+    <p class="m-4 font-bold text-xl">Reparto</p>
+  <div><CarouselCast/></div>
 </template>
 
 <style>
@@ -113,11 +120,7 @@ onMounted(async () => {
   border-radius: 1rem;
 }
 
-#avatar img {
-  border-radius: 50%;
-}
-
-#cont_gal{
+#cont_gal {
   background: url(/public/imagen.jpg);
 }
 </style>

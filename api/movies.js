@@ -41,3 +41,9 @@ export async function getMovieImages(movieId) {
   const data = await response.json();
   return data.posters;
 }
+
+export async function getMovieCast(movieId) {
+  const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`);
+  const data = await response.json();
+  return data.cast;
+}

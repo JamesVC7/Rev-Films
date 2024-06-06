@@ -33,7 +33,7 @@ onMounted(async () => {
     </div>
   </div>
   <div class="flex flex-col relative bg-gradient-to-r from-blue-950 to-fuchsia-900 text-white" id="cont2">
-    <span class="flex justify-end p-4 "><nuxt-link class="hover:text-indigo-600" to="/films">Ver mas</nuxt-link></span>
+    <span class="flex justify-end p-4 "><nuxt-link class="hover:text-cyan-500" to="/films">Ver mas</nuxt-link></span>
     <p class="p-4 text-2xl">Ultimos estrenos</p>
     <div class="flex flex-wrap p-4 gap-4 justify-center lg:flex-nowrap">
       <MovieCard

@@ -47,8 +47,8 @@ onMounted(fetchMoviesWithVideos);
 </script>
 
 <template>
-  <div class="flex flex-wrap justify-center gap-3 p-4">
-    <Card v-for="movie in movies" :key="movie.id" class="w-full md:w-1/3">
+  <div class="flex flex-wrap justify-center gap-3 p-4 bg-gradient-to-r from-blue-950 to-fuchsia-900">
+    <Card v-for="movie in movies" :key="movie.id" class="w-full bg-black text-white text-center md:w-1/3">
       <template #title>{{ movie.title }}</template>
       <template #content>
         <div v-if="movie.videoKey">
