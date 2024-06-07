@@ -2,12 +2,12 @@
     <div class="card">
       <Carousel :value="cast" :numVisible="5" :numScroll="5" :responsiveOptions="responsiveOptions" id="cont_cast">
         <template #item="slotProps">
-          <div class="flex flex-col items-center h-5/6 border border-surface-200 dark:border-surface-700 rounded m-2 p-4 shadow-md ">
-            <div class="flex flex-col items-center gap-4 mb-4">
-                <Avatar :image="'https://image.tmdb.org/t/p/w500' + slotProps.data.profile_path" class="mr-2" size="large" shape="circle" />
+          <div class="flex flex-col items-center border border-surface-200 dark:border-surface-700 rounded m-2 p-4 shadow-md" id="cont_text">
+            <div class="flex flex-col items-center gap-4 mb-4 w-full h-full">
+                <Avatar :image="getProfileUrl(slotProps.data.profile_path)" class="mr-2"/>
               <p class="font-bold">{{ slotProps.data.name }}</p>
+              <p>{{ slotProps.data.character}}</p>
             </div>
-            <p>{{ slotProps.data.character}}</p>
           </div>
         </template>
       </Carousel>
@@ -37,6 +37,11 @@ const responsiveOptions = ref([
   },
   {
     breakpoint: '575px',
+    numVisible: 2,
+    numScroll: 1
+  },
+  {
+    breakpoint: '420px',
     numVisible: 1,
     numScroll: 1
   }
@@ -57,6 +62,12 @@ const route = useRoute();
 const movie = ref<Movie | null>(null);
 const cast = ref<Cast[]>([]);
 
+function getProfileUrl(profilePath: string | null): string {
+  return profilePath
+    ? `https://image.tmdb.org/t/p/w500${profilePath}`
+    : '/avatar.png';
+}
+
 onMounted(async() => {
     const movieTitle = route.params.title;
     movie.value = await getMovieByTitle(movieTitle);
@@ -73,5 +84,14 @@ onMounted(async() => {
 #cont_cast ul{
   display: none;
 }
-
+#cont_cast img{
+  border-radius: 1rem;
+}
+#cont_cast .p-avatar{
+  height: 75%;
+  width: 100%;
+}
+#cont_text{
+  height: 92%;
+}
 </style>

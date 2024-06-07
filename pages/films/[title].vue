@@ -87,7 +87,8 @@ onMounted(async () => {
     </div>
     <h2 class="text-xl font-bold px-4">Reseñas</h2>
     <div class="card">
-      <Carousel :value="reviews" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions" circular :autoplayInterval="5000">
+      <Carousel :value="reviews" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions" circular
+        :autoplayInterval="5000">
         <template #item="slotProps">
           <div class="border border-surface-200 dark:border-surface-700 rounded m-2 p-4 shadow-md">
             <div class="flex items-center gap-4 mb-4">
@@ -105,11 +106,17 @@ onMounted(async () => {
     <p>Loading...</p>
   </div>
   <div class="flex flex-col p-4 text-white" id="cont_gal">
-    <p class="text-center">Galeria de Imagenes</p>
+    <p class="text-center text-xl">Galeria de Imagenes</p>
     <Gallery />
   </div>
-    <p class="m-4 font-bold text-xl">Reparto</p>
-  <div><CarouselCast/></div>
+  <p class="m-4 font-bold text-xl">Reparto</p>
+  <div>
+    <CarouselCast />
+  </div>
+  <div class="bg-gradient-to-r from-red-950 via-red-800 to-red-950 p-2 text-white">
+    <p class="m-4 font-bold text-xl">Trailers & Clips</p>
+    <Clips />
+  </div>
 </template>
 
 <style>

@@ -39,7 +39,7 @@ export async function searchMovies(query) {
 export async function getMovieImages(movieId) {
   const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${API_KEY}`);
   const data = await response.json();
-  return data.posters;
+  return data.backdrops;
 }
 
 export async function getMovieCast(movieId) {
