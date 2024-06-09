@@ -47,3 +47,12 @@ export async function getMovieCast(movieId) {
   const data = await response.json();
   return data.cast;
 }
+
+export async function getMovieDetails(movieId) {
+  const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=es-ES`);
+  const data = await response.json();
+  return {
+    genres: data.genres,
+    runtime: data.runtime,
+  };
+}

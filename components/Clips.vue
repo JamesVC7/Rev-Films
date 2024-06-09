@@ -60,4 +60,7 @@ onMounted(async() => {
 #cont_video .p-card-content{
   padding: 0;
 }
+#cont_video .p-card-body{
+  width: 100%;
+}
 </style>

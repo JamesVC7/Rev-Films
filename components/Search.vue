@@ -56,7 +56,7 @@ const selectMovie = (title: string) => {
 
 <template>
     <div class="flex flex-wrap justify-center gap-3 p-4" id="rsearch">
-        <IconField class="w-full">
+        <IconField class="w-full shadow-md">
             <InputIcon class="pi pi-search" @click="searchMovie" />
             <InputText v-model="value1" placeholder="Busca una película" class="w-full shadow-none"
                 @keypress="handleKeyPress" @input="handleInput" />
