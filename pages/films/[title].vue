@@ -71,13 +71,12 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Search/>
   <div v-if="movie">
     <h1 class="text-center text-3xl m-4 sm:text-5xl">{{ movie.title }}</h1>
     <div class="m-4 sm:flex items-center justify-center" id="context">
       <Image :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path" />
       <div class="flex flex-col sm:w-6/12">
-        <p class="px-4">{{ movie.release_date }}</p>
+        <p class="px-4 font-bold">{{ movie.release_date }}</p>
         <div v-if="details" class="flex gap-4 px-4">
           <p>{{ details.genres.map(genre => genre.name).join(', ') }}</p>
           <p><i class="pi pi-clock" style="font-size: 1rem"></i>&nbsp;{{ details.runtime }} minutos</p>

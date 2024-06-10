@@ -1,6 +1,10 @@
 <template>
   <div class="card w-full sticky top-0 z-10">
       <Menubar :model="items" active-class="active"/>
+      <div v-if="showSearch">
+        <Search class="!p-0 !px-4 "/>
+      </div>
+      
   </div>
 </template>
 
@@ -8,6 +12,7 @@
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 
+const showSearch = ref(false);
 const route = useRoute();
 
 const items = ref([
@@ -34,6 +39,13 @@ const items = ref([
     icon: 'pi pi-envelope',
     url: '/contact',
     class: computed(() => (route.path === '/contact' ? 'active' : '')),
+  },
+  {
+    label: 'Search',
+    icon: 'pi pi-search',
+    command: () => {
+      showSearch.value = !showSearch.value; 
+    },
   },
 ]);
 </script>
