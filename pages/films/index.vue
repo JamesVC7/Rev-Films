@@ -2,10 +2,6 @@
 import { ref, onMounted } from 'vue';
 import { getMovies } from '~/api/movies';
 
-definePageMeta({
-  layout: 'menu'
-});
-
 interface Movie {
   id: number;
   title: string;

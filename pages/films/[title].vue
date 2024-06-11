@@ -3,10 +3,6 @@ import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { getMovieByTitle, getMovieReviews, getMovieDetails } from '~/api/movies';
 
-definePageMeta({
-  layout: 'menu'
-});
-
 interface Review {
   author: string;
   content: string;

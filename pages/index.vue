@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { getMovies } from '~/api/movies';
-import Card from 'primevue/card';
-import Image from 'primevue/image';
 import MovieCard from '~/components/MovieCard.vue';
+
+definePageMeta({
+  layout: 'principal'
+});
 
 const movies = ref<Movie[]>([]);
 

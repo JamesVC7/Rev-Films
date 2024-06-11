@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-
 const value = ref(null);
 const val = ref(null);
 const valu = ref(null);
-
 const loading = ref(false);
-
 const load = () => {
     loading.value = true;
     setTimeout(() => {
@@ -14,9 +11,7 @@ const load = () => {
     }, 2000);
 };
 
-definePageMeta({
-  layout: 'menu'
-});
+
 </script>
 
 <template>

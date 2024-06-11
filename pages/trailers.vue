@@ -3,10 +3,6 @@ import { ref, onMounted } from 'vue';
 import { getMovies, getMovieVideos } from '~/api/movies';
 import Card from 'primevue/card';
 
-definePageMeta({
-  layout: 'menu'
-});
-
 interface Movie {
   id: number;
   title: string;
